@@ -96,6 +96,19 @@ So there are no surprises, here is everything Nyx touches:
 ## Millennium plugin
 
 If you already use Millennium, run `Nyx-millennium-installer.exe`: it finds Steam and Millennium and
-installs the plugin. Enable **Nyx** in Millennium, then restart Steam. The plugin covers adding games,
-bundles and DLC, plus the settings panel. Fixes and repair are standalone-only for now, and the plugin
-still ships the older OpenSteamTool engine.
+installs the plugin. Enable **Nyx** in Millennium, then restart Steam. To update the plugin, run the
+installer again.
+
+The plugin covers adding games, bundles and DLC, plus the settings panel. Fixes and repair are
+standalone-only for now.
+
+It installs and updates the same **BetterSteamTools** engine, checked the same way (SHA-256 before
+anything is placed). One difference: the plugin runs *inside* Steam, so it can't restart Steam or
+overwrite the engine files Steam has loaded. It puts the new files in place, renames the old ones
+`*.nyx-old`, and the new engine takes over **the next time you restart Steam**. The `*.nyx-old` files
+are deleted automatically after that restart. The settings panel says *restart Steam to finish* when an
+update is waiting, with a **Restart Steam** button.
+
+Besides `config\stplug-in\`, the plugin also writes each game's `.lua` to `Steam\config\lua\`, the
+folder the engine reads natively. To uninstall, remove the plugin in Millennium, then delete the files
+listed in the uninstall steps above (and `*.nyx-old`, if any).
