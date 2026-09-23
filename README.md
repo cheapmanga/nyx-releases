@@ -1,4 +1,6 @@
-# Nyx
+<p align="center"><img src="docs/logo.png" width="96" alt="Nyx logo"></p>
+
+<h1 align="center">Nyx</h1>
 
 Nyx adds games to your Steam library from free manifest sources, straight from the Steam client:
 open a game's store page and click **Add to library**. The source code is private. This repository
@@ -40,6 +42,11 @@ Use one or the other, not both: the standalone app **or** the Millennium plugin.
 - The tray menu also has **Apply a fix from files…** for a fix you downloaded yourself.
 - The interface follows your Steam language (English plus 18 other languages).
 
+<p align="center">
+  <img src="docs/settings-general.png" width="49%" alt="Nyx settings, General page: disable switch and unlock engine status">
+  <img src="docs/settings-games.png" width="49%" alt="Nyx settings, Games page">
+</p>
+
 ### Updates
 
 Nyx updates itself: at startup it compares itself with `Nyx.exe` on the latest release, and if they
@@ -48,6 +55,8 @@ differ, it downloads the new one, replaces itself and restarts. Nothing to do on
 The unlock engine (below) is updated too. If Steam is closed when Nyx starts, the update is applied right
 away. If Steam is running, Nyx never restarts it on its own, since that would kill a running game.
 Use **Update** in the settings panel instead.
+
+<p align="center"><img src="docs/settings-update.png" width="60%" alt="Unlock engine with an update available"></p>
 
 ### How it works, and what it changes on your PC
 
