@@ -15,7 +15,6 @@ Everything is on the [latest release](https://github.com/cheapmanga/nyx-releases
 | **`Nyx.exe`** | **The standalone app. This is the one you want.** A single self-contained Windows exe with nothing else to install. |
 | `Nyx-millennium-installer.exe` | Only if you use [Millennium](https://github.com/SteamClientHomebrew/Millennium): installs Nyx as a Millennium plugin instead. Re-run it to update. |
 | `Nyx-millennium.zip` | The Millennium plugin itself, downloaded by the installer above. You don't need it by hand. |
-| `Nyx-millennium.exe`, `Nyx-win-x64.zip`, `nyx.js` | Older files from earlier builds, kept so old links don't break. **Don't use them.** |
 
 Use one or the other, not both: the standalone app **or** the Millennium plugin.
 
