@@ -46,6 +46,21 @@ Use one or the other, not both: the standalone app **or** the Millennium plugin.
   <img src="docs/settings-games.png" width="49%" alt="Nyx settings, Games page">
 </p>
 
+### Remove a game
+
+There's no button for it yet. To take a game Nyx added out of your library (`<appid>` is the number in
+the game's store page address, e.g. `1245620` for ELDEN RING):
+
+1. If the game is installed, uninstall it first: right-click it in your library → **Manage** →
+   **Uninstall**. That only removes the game's files, not the Nyx add.
+2. Close Steam completely (**Steam** menu → **Exit**).
+3. Delete `Steam\config\stplug-in\<appid>.lua`, and `Steam\config\lua\<appid>.lua` if there is one
+   (the Millennium plugin writes both).
+4. Start Steam again: the game is gone from your library, and its store page offers **Add to library**
+   again.
+
+The game's `.manifest` files in `Steam\depotcache\` can stay, they're harmless.
+
 ### Updates
 
 Nyx updates itself: at startup it compares itself with `Nyx.exe` on the latest release, and if they
@@ -111,4 +126,5 @@ update is waiting, with a **Restart Steam** button.
 
 Besides `config\stplug-in\`, the plugin also writes each game's `.lua` to `Steam\config\lua\`, the
 folder the engine reads natively. To uninstall, remove the plugin in Millennium, then delete the files
-listed in the uninstall steps above (and `*.nyx-old`, if any).
+listed in the uninstall steps above (and `*.nyx-old`, if any). To remove a single game, see
+[Remove a game](#remove-a-game): the same steps apply.
