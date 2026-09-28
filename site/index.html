@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nyx — Every Steam game, on your terms</title>
+<meta name="description" content="Nyx adds games to your Steam library and keeps them on the latest build — straight from the store page, no clutter.">
+<meta property="og:title" content="Nyx">
+<meta property="og:description" content="Add any Steam game to your library and keep it on the latest build.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#080b14">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: dark;
+    --bg:#080b14;
+    --bg-2:#0c111d;
+    --surface:#111827;
+    --surface-2:#161f30;
+    --line:#1f2a3f;
+    --line-2:#2a3852;
+    --text:#e9edf6;
+    --text-dim:#9aa7bd;
+    --text-mute:#6b7890;
+    --accent:#5b8cff;
+    --accent-soft:#7ea2ff;
+    --accent-deep:#3a63d6;
+    --silver:#cfd8e6;
+    --good:#4cc98a;
+    --warn:#f0a850;
+    --radius:14px;
+    --gutter:22px;
+    --maxw:1080px;
+    --font-body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --font-display:"Sora","Manrope",system-ui,sans-serif;
+    --font-mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:var(--bg);color:var(--text);
+    font-family:var(--font-body);font-size:16px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+    background-image:
+      radial-gradient(900px 500px at 78% -8%, rgba(91,140,255,.16), transparent 60%),
+      radial-gradient(700px 500px at 6% 4%, rgba(58,99,214,.10), transparent 55%);
+    background-repeat:no-repeat;background-attachment:fixed;
+  }
+  img{max-width:100%}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--gutter)}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{font-family:var(--font-display);text-wrap:balance;margin:0;letter-spacing:-.02em;font-weight:700}
+  p{margin:0}
+  .eyebrow{font-size:.74rem;text-transform:uppercase;letter-spacing:.16em;color:var(--accent-soft);font-weight:600}
+
+  header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
+    backdrop-filter:blur(12px);background:rgba(8,11,20,.72);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;gap:20px;height:64px}
+  .brand{display:flex;align-items:center;gap:11px;font-family:var(--font-display);font-weight:700;font-size:1.16rem;letter-spacing:-.01em}
+  .brand .tile{width:34px;height:34px;flex:none}
+  .nav-links{margin-left:auto;display:flex;align-items:center;gap:26px}
+  .nav-links a{font-size:.92rem;color:var(--text-dim);transition:color .15s}
+  .nav-links a:hover{color:var(--text)}
+  .nav-cta{padding:8px 15px;border-radius:9px;background:var(--accent);color:#fff !important;font-weight:600;font-size:.9rem}
+  .nav-cta:hover{background:var(--accent-deep)}
+  @media(max-width:640px){.nav-links a.hide-sm{display:none}}
+
+  .hero{padding-block:78px 60px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:24px}
+  .mark-lg{width:104px;height:104px}
+  .hero h1{font-size:clamp(2.6rem,7vw,4.4rem);line-height:1.02;font-weight:800}
+  .hero h1 .glow{color:var(--accent-soft)}
+  .lede{max-width:33ch;font-size:clamp(1.05rem,2.6vw,1.28rem);color:var(--text-dim)}
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:6px}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:11px;font-weight:600;font-size:1rem;border:1px solid transparent;transition:transform .12s,background .15s,border-color .15s;cursor:pointer}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-primary{background:linear-gradient(180deg,var(--accent),var(--accent-deep));color:#fff;box-shadow:0 8px 30px -12px rgba(91,140,255,.7)}
+  .btn-ghost{background:var(--surface);border-color:var(--line-2);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--accent)}
+  .btn small{font-weight:400;color:rgba(255,255,255,.72);font-size:.78rem}
+  .btn-ghost small{color:var(--text-mute)}
+  .meta-line{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;color:var(--text-mute);font-size:.86rem;margin-top:2px}
+  .meta-line span{display:inline-flex;align-items:center;gap:7px}
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--good)}
+
+  section{padding-block:56px}
+  .sec-head{display:flex;flex-direction:column;gap:10px;margin-bottom:34px;max-width:62ch}
+  .sec-head h2{font-size:clamp(1.7rem,4vw,2.3rem)}
+  .sec-head p{color:var(--text-dim)}
+
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:840px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:540px){.grid{grid-template-columns:1fr}}
+  .card{background:linear-gradient(180deg,var(--surface),var(--bg-2));border:1px solid var(--line);border-radius:var(--radius);padding:22px 20px;display:flex;flex-direction:column;gap:11px}
+  .card .ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:rgba(91,140,255,.12);border:1px solid var(--line-2);color:var(--accent-soft);font-size:1.2rem}
+  .card h3{font-size:1.08rem}
+  .card p{color:var(--text-dim);font-size:.94rem}
+
+  .dl-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:720px){.dl-grid{grid-template-columns:1fr}}
+  .dl{position:relative;background:var(--surface);border:1px solid var(--line-2);border-radius:16px;padding:26px 24px;display:flex;flex-direction:column;gap:14px}
+  .dl.rec{border-color:var(--accent)}
+  .badge{position:absolute;top:-11px;left:24px;background:var(--accent);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:6px}
+  .dl h3{font-size:1.25rem;display:flex;align-items:center;gap:10px}
+  .dl .sub{color:var(--text-dim);font-size:.94rem;flex:1}
+  .dl .filemeta{font-family:var(--font-mono);font-size:.78rem;color:var(--text-mute)}
+  .dl .btn{justify-content:center}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:s}
+  @media(max-width:720px){.steps{grid-template-columns:1fr}}
+  .step{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:9px}
+  .step .n{counter-increment:s;font-family:var(--font-mono);font-size:.8rem;color:var(--accent-soft);font-weight:700}
+  .step .n::before{content:"0" counter(s)}
+  .step h3{font-size:1.06rem}
+  .step p{color:var(--text-dim);font-size:.93rem}
+
+  .trans{background:linear-gradient(180deg,var(--surface),var(--bg-2));border:1px solid var(--line);border-radius:18px;padding:30px;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  @media(max-width:720px){.trans{grid-template-columns:1fr;padding:24px}}
+  .trans h3{font-size:1.1rem;margin-bottom:12px;display:flex;align-items:center;gap:9px}
+  .trans ul{margin:0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+  .trans li{display:flex;gap:11px;color:var(--text-dim);font-size:.94rem;line-height:1.5}
+  .trans li .b{color:var(--accent-soft);flex:none;margin-top:.15em}
+  .trans code{font-family:var(--font-mono);font-size:.82em;background:var(--surface-2);padding:2px 6px;border-radius:5px;color:var(--silver);border:1px solid var(--line)}
+
+  footer{border-top:1px solid var(--line);padding-block:34px;margin-top:20px}
+  .foot-in{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;color:var(--text-mute);font-size:.86rem}
+  .foot-in .brand{font-size:1rem;color:var(--text-dim)}
+  .foot-links{display:flex;gap:20px}
+  .foot-links a{color:var(--text-mute)}
+  .foot-links a:hover{color:var(--text)}
+
+  @media(prefers-reduced-motion:no-preference){
+    .twinkle{animation:tw 4.5s ease-in-out infinite}
+    @keyframes tw{0%,100%{opacity:.55;transform:scale(.94)}50%{opacity:1;transform:scale(1.06)}}
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#141c30"/><stop offset="1" stop-color="#0a0f1c"/>
+    </linearGradient>
+    <linearGradient id="star" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eaf0fb"/><stop offset=".5" stop-color="#b9c6dd"/><stop offset="1" stop-color="#8ba3cf"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#5b8cff" stop-opacity=".9"/><stop offset="1" stop-color="#5b8cff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>
+
+<template id="sparkle">
+  <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="3" y="3" width="94" height="94" rx="24" fill="url(#tile)" stroke="#26344e" stroke-width="1.4"/>
+    <circle class="twinkle" cx="50" cy="50" r="30" fill="url(#halo)"/>
+    <path d="M50 20 C52 40 60 48 80 50 C60 52 52 60 50 80 C48 60 40 52 20 50 C40 48 48 40 50 20 Z" fill="url(#star)"/>
+    <path d="M77 22 C77.8 28 79 29.2 85 30 C79 30.8 77.8 32 77 38 C76.2 32 75 30.8 69 30 C75 29.2 76.2 28 77 22 Z" fill="#cfd8e6" opacity=".85"/>
+  </svg>
+</template>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top"><span class="tile" data-mark></span>Nyx</a>
+    <nav class="nav-links">
+      <a class="hide-sm" href="#features">Features</a>
+      <a class="hide-sm" href="#how">How it works</a>
+      <a href="https://github.com/cheapmanga/nyx-releases">GitHub</a>
+      <a class="nav-cta" href="#download">Download</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero wrap">
+  <span class="mark-lg" data-mark aria-hidden="true"></span>
+  <h1>Every Steam game,<br><span class="glow">on your terms.</span></h1>
+  <p class="lede">Nyx adds games to your Steam library and keeps them on the latest build — straight from the store page, no clutter.</p>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="https://github.com/cheapmanga/nyx-releases/releases/download/v0.2.0/Nyx.exe">
+      Download for Windows <small>Standalone</small>
+    </a>
+    <a class="btn btn-ghost" href="#download">Using Millennium?</a>
+  </div>
+  <div class="meta-line">
+    <span><span class="dot"></span>Free &amp; auto-updating</span>
+    <span>Windows 10 / 11</span>
+    <span>18 languages</span>
+  </div>
+</section>
+
+<section id="features" class="wrap">
+  <div class="sec-head">
+    <span class="eyebrow">What it does</span>
+    <h2>Built to disappear into Steam</h2>
+    <p>No second launcher, no separate library. Nyx works from inside Steam and gets out of the way.</p>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div class="ic">＋</div>
+      <h3>Add from the store page</h3>
+      <p>Open any game's Steam store page and click “Add via Nyx.” It lands in your library like anything else.</p>
+    </div>
+    <div class="card">
+      <div class="ic">↻</div>
+      <h3>Always the current build</h3>
+      <p>Nyx pulls the manifests for the build Steam is shipping today, so your games install and update to the real latest version.</p>
+    </div>
+    <div class="card">
+      <div class="ic">◈</div>
+      <h3>DLC included</h3>
+      <p>Most games come with their DLC already entitled when you add them — nothing extra to hunt down.</p>
+    </div>
+    <div class="card">
+      <div class="ic">⛭</div>
+      <h3>Native settings</h3>
+      <p>A real Steam ▸ Nyx settings panel: pick libraries, toggle behavior, restart Steam — right where you'd expect it.</p>
+    </div>
+    <div class="card">
+      <div class="ic">✕</div>
+      <h3>Kill-switch</h3>
+      <p>Turn Nyx off inside Steam in one click. Everything hides and Steam behaves exactly as it did before — fully reversible.</p>
+    </div>
+    <div class="card">
+      <div class="ic">◐</div>
+      <h3>Standalone or plugin</h3>
+      <p>Run the standalone tray app, or drop in the Millennium plugin if you already use Millennium. Same core, your choice.</p>
+    </div>
+  </div>
+</section>
+
+<section id="download" class="wrap">
+  <div class="sec-head">
+    <span class="eyebrow">Download</span>
+    <h2>Pick your version</h2>
+    <p>Both are free and update themselves. Not sure? Take the standalone.</p>
+  </div>
+  <div class="dl-grid">
+    <div class="dl rec">
+      <span class="badge">Recommended</span>
+      <h3><span class="tile" style="width:26px;height:26px" data-mark></span>Nyx Standalone</h3>
+      <p class="sub">A small tray app that sets everything up for you. The simplest way to start — nothing else required.</p>
+      <p class="filemeta">Nyx.exe · 149 MB · Windows x64</p>
+      <a class="btn btn-primary" href="https://github.com/cheapmanga/nyx-releases/releases/download/v0.2.0/Nyx.exe">Download Nyx</a>
+    </div>
+    <div class="dl">
+      <h3>Millennium Plugin</h3>
+      <p class="sub">For people already running Millennium. Installs the Nyx plugin into your existing setup.</p>
+      <p class="filemeta">Nyx-millennium-installer.exe · 146 MB</p>
+      <a class="btn btn-ghost" href="https://github.com/cheapmanga/nyx-releases/releases/download/v0.2.0/Nyx-millennium-installer.exe">Get the plugin</a>
+    </div>
+  </div>
+</section>
+
+<section id="how" class="wrap">
+  <div class="sec-head">
+    <span class="eyebrow">How it works</span>
+    <h2>Three steps, then it's just Steam</h2>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <span class="n"></span>
+      <h3>Install &amp; launch</h3>
+      <p>Run Nyx once. It sets up the unlock engine and adds a Nyx entry inside Steam — no manual file wrangling.</p>
+    </div>
+    <div class="step">
+      <span class="n"></span>
+      <h3>Add a game</h3>
+      <p>Go to a game's store page and choose Add via Nyx. It fetches the current manifests and writes them where Steam looks.</p>
+    </div>
+    <div class="step">
+      <span class="n"></span>
+      <h3>Install &amp; play</h3>
+      <p>Restart Steam when prompted, then download and play like any owned game. Updates follow the live build.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="sec-head">
+    <span class="eyebrow">No black box</span>
+    <h2>What Nyx touches on your PC</h2>
+    <p>Nyx is readable — the plugin ships as plain Lua and JavaScript, and the app is unobfuscated. Here's exactly what changes, and how to undo it.</p>
+  </div>
+  <div class="trans">
+    <div>
+      <h3>What it changes</h3>
+      <ul>
+        <li><span class="b">›</span><span>Deploys the unlock engine into your Steam folder so added games can install.</span></li>
+        <li><span class="b">›</span><span>Writes game <code>.lua</code> and <code>.manifest</code> files into Steam's config and depot cache.</span></li>
+        <li><span class="b">›</span><span>Stores its own settings under <code>%LocalAppData%\Nyx</code> — never your Steam credentials.</span></li>
+        <li><span class="b">›</span><span>That's it. No account login, no telemetry on what you play.</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Removing things</h3>
+      <ul>
+        <li><span class="b">›</span><span><b style="color:var(--text)">A game:</b> open its store page ▸ Nyx icon ▸ Remove via Nyx.</span></li>
+        <li><span class="b">›</span><span><b style="color:var(--text)">Nyx itself:</b> flip the kill-switch in Steam ▸ Nyx to hide everything, or delete the engine files and the <code>Nyx</code> plugin folder.</span></li>
+        <li><span class="b">›</span><span>Removing Nyx leaves your installed games where they are.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <a class="brand" href="#top"><span class="tile" style="width:24px;height:24px" data-mark></span>Nyx</a>
+    <div class="foot-links">
+      <a href="https://github.com/cheapmanga/nyx-releases">GitHub</a>
+      <a href="https://github.com/cheapmanga/nyx-releases/releases">Releases</a>
+      <a href="#download">Download</a>
+    </div>
+    <span>Windows · Free · Open to read</span>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var tpl=document.getElementById('sparkle');
+    document.querySelectorAll('[data-mark]').forEach(function(el){
+      el.appendChild(tpl.content.cloneNode(true));
+    });
+  })();
+</script>
+</body>
+</html>
