@@ -181,6 +181,37 @@
     .hero>*:nth-child(5){animation-delay:.41s}
     @keyframes heroIn{to{opacity:1;transform:none}}
   }
+
+  /* ── Responsive refinements ── */
+  html{overflow-x:clip}
+  @media (hover:none){
+    .card:hover,.shot:hover,.btn:hover{transform:none}
+  }
+  @media (max-width:860px){
+    .nav-links{gap:16px}
+    .nav-links a.hide-sm{display:none}
+  }
+  @media (max-width:600px){
+    section{padding-block:40px}
+    .sec-head{margin-bottom:26px}
+    .hero{padding-block:52px 38px;gap:18px}
+    .mark-lg{width:84px;height:84px}
+    .dl{padding:22px 18px}
+    .trans{padding:22px}
+  }
+  @media (max-width:520px){
+    :root{--gutter:16px}
+    .marquee__track span{font-size:.86rem;padding-inline:16px}
+  }
+  @media (max-width:400px){
+    .nav-in{gap:12px;height:58px}
+    .brand{font-size:1.04rem;gap:8px}
+    .brand .tile{width:26px;height:26px}
+    .nav-cta{padding:7px 12px;font-size:.84rem}
+    .btn{padding:13px 18px}
+    .cta-row{width:100%}
+    .cta-row .btn{flex:1 1 auto;justify-content:center}
+  }
 </style>
 </head>
 <body>
@@ -421,7 +452,7 @@
   // Scroll reveals with per-group stagger.
   var sel='.sec-head, .card, .step, .faq details, .shot, .dl';
   document.querySelectorAll(sel).forEach(function(el){el.classList.add('reveal');});
-  document.querySelectorAll('.grid,.steps,.faq,.shots,.dl-panel').forEach(function(parent){
+  document.querySelectorAll('.grid,.steps,.faq,.shots,.dl-grid').forEach(function(parent){
     Array.prototype.forEach.call(parent.children,function(child,i){
       if(child.classList&&child.classList.contains('reveal')){child.style.transitionDelay=(Math.min(i,5)*0.07).toFixed(2)+'s';}
     });
