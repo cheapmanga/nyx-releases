@@ -131,7 +131,6 @@
   .foot-links a{color:var(--text-mute)}
   .foot-links a:hover{color:var(--text)}
 
-
   .faq{display:flex;flex-direction:column;gap:12px}
   .faq details{background:linear-gradient(180deg,var(--surface),var(--bg-2));border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
   .faq summary{list-style:none;cursor:pointer;padding:18px 20px;font-family:var(--font-display);font-weight:600;font-size:1rem;color:var(--text);display:flex;align-items:center;gap:12px}
@@ -142,39 +141,27 @@
   .faq .ans{padding:0 20px 18px;color:var(--text-dim);font-size:.94rem;line-height:1.6}
   .faq .ans code{font-family:var(--font-mono);font-size:.85em;background:var(--surface-2);padding:2px 6px;border-radius:5px;color:var(--silver);border:1px solid var(--line)}
   .faq .ans b{color:var(--text)}
+
+  .tile,.mark-lg{object-fit:contain;display:inline-block}
+  .brand .tile{vertical-align:middle}
+  .shots{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:640px){.shots{grid-template-columns:1fr}}
+  .shot{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#0a0f1a}
+  .shot img{display:block;width:100%;height:auto}
+  .shot .cap{padding:11px 16px;font-size:.84rem;color:var(--text-dim);border-top:1px solid var(--line)}
+  .shot.wide{grid-column:1/-1}
 </style>
 </head>
 <body>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#141c30"/><stop offset="1" stop-color="#0a0f1c"/>
-    </linearGradient>
-    <linearGradient id="star" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#eaf0fb"/><stop offset=".5" stop-color="#b9c6dd"/><stop offset="1" stop-color="#8ba3cf"/>
-    </linearGradient>
-    <radialGradient id="halo" cx="50%" cy="50%" r="50%">
-      <stop offset="0" stop-color="#5b8cff" stop-opacity=".9"/><stop offset="1" stop-color="#5b8cff" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
-</svg>
-
-<template id="sparkle">
-  <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="3" y="3" width="94" height="94" rx="24" fill="url(#tile)" stroke="#26344e" stroke-width="1.4"/>
-    <circle cx="50" cy="50" r="30" fill="url(#halo)" opacity=".8"/>
-    <path d="M50 20 C52 40 60 48 80 50 C60 52 52 60 50 80 C48 60 40 52 20 50 C40 48 48 40 50 20 Z" fill="url(#star)"/>
-    <path d="M77 22 C77.8 28 79 29.2 85 30 C79 30.8 77.8 32 77 38 C76.2 32 75 30.8 69 30 C75 29.2 76.2 28 77 22 Z" fill="#cfd8e6" opacity=".85"/>
-  </svg>
-</template>
 
 <header class="nav">
   <div class="wrap nav-in">
-    <a class="brand" href="#top"><span class="tile" data-mark></span>Nyx</a>
+    <a class="brand" href="#top"><img class="tile" src="docs/logo.png" alt="Nyx logo">Nyx</a>
     <nav class="nav-links">
       <a class="hide-sm" href="#features">Features</a>
       <a class="hide-sm" href="#how">How it works</a>
+      <a class="hide-sm" href="#screens">Screenshots</a>
       <a class="hide-sm" href="#faq">FAQ</a>
       <a href="https://github.com/cheapmanga/nyx-releases">GitHub</a>
       <a class="nav-cta" href="#download">Download</a>
@@ -184,7 +171,7 @@
 
 <main id="top">
 <section class="hero wrap">
-  <span class="mark-lg" data-mark aria-hidden="true"></span>
+  <img class="mark-lg" src="docs/logo.png" alt="Nyx logo">
   <h1>Every Steam game,<br><span class="glow">on your terms.</span></h1>
   <p class="lede">Nyx adds games to your Steam library and keeps them on the latest build — straight from the store page, no clutter.</p>
   <div class="cta-row">
@@ -240,6 +227,28 @@
   </div>
 </section>
 
+<section id="screens" class="wrap">
+  <div class="sec-head">
+    <span class="eyebrow">See it</span>
+    <h2>It lives inside Steam</h2>
+    <p>No extra window to tab into — Nyx's controls sit in a native Steam ▸ Nyx settings panel.</p>
+  </div>
+  <div class="shots">
+    <figure class="shot" style="margin:0">
+      <img src="docs/settings-general.png" width="1800" height="1232" loading="lazy" alt="Nyx settings, General page: the disable switch and unlock engine status">
+      <figcaption class="cap">General — kill-switch and unlock engine status</figcaption>
+    </figure>
+    <figure class="shot" style="margin:0">
+      <img src="docs/settings-games.png" width="1800" height="1232" loading="lazy" alt="Nyx settings, Games page">
+      <figcaption class="cap">Games — what you've added, at a glance</figcaption>
+    </figure>
+    <figure class="shot wide" style="margin:0">
+      <img src="docs/settings-update.png" width="1800" height="1232" loading="lazy" alt="Unlock engine with an update available">
+      <figcaption class="cap">The unlock engine updates itself — one click, before Steam restarts</figcaption>
+    </figure>
+  </div>
+</section>
+
 <section id="download" class="wrap">
   <div class="sec-head">
     <span class="eyebrow">Download</span>
@@ -249,7 +258,7 @@
   <div class="dl-grid">
     <div class="dl rec">
       <span class="badge">Recommended</span>
-      <h3><span class="tile" style="width:26px;height:26px" data-mark></span>Nyx Standalone</h3>
+      <h3><img class="tile" style="width:26px;height:26px" src="docs/logo.png" alt="">Nyx Standalone</h3>
       <p class="sub">A small tray app that sets everything up for you. The simplest way to start — nothing else required.</p>
       <p class="filemeta">Nyx.exe · 149 MB · Windows x64</p>
       <a class="btn btn-primary" href="https://github.com/cheapmanga/nyx-releases/releases/download/v0.2.0/Nyx.exe">Download Nyx</a>
@@ -354,7 +363,7 @@
 
 <footer>
   <div class="wrap foot-in">
-    <a class="brand" href="#top"><span class="tile" style="width:24px;height:24px" data-mark></span>Nyx</a>
+    <a class="brand" href="#top"><img class="tile" style="width:24px;height:24px" src="docs/logo.png" alt="">Nyx</a>
     <div class="foot-links">
       <a href="https://github.com/cheapmanga/nyx-releases">GitHub</a>
       <a href="https://github.com/cheapmanga/nyx-releases/releases">Releases</a>
@@ -364,13 +373,5 @@
   </div>
 </footer>
 
-<script>
-  (function(){
-    var tpl=document.getElementById('sparkle');
-    document.querySelectorAll('[data-mark]').forEach(function(el){
-      el.appendChild(tpl.content.cloneNode(true));
-    });
-  })();
-</script>
 </body>
 </html>
