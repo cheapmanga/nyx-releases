@@ -24,9 +24,9 @@
     --text:#e9edf6;
     --text-dim:#9aa7bd;
     --text-mute:#6b7890;
-    --accent:#5b8cff;
-    --accent-soft:#7ea2ff;
-    --accent-deep:#3a63d6;
+    --accent:#4a6f9c;
+    --accent-soft:#8ba6c4;
+    --accent-deep:#39567d;
     --silver:#cfd8e6;
     --good:#4cc98a;
     --warn:#f0a850;
@@ -45,8 +45,8 @@
     -webkit-font-smoothing:antialiased;
     padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
     background-image:
-      radial-gradient(900px 500px at 78% -8%, rgba(91,140,255,.16), transparent 60%),
-      radial-gradient(700px 500px at 6% 4%, rgba(58,99,214,.10), transparent 55%);
+      radial-gradient(900px 500px at 78% -8%, rgba(110,140,185,.10), transparent 60%),
+      radial-gradient(700px 500px at 6% 4%, rgba(70,95,140,.07), transparent 55%);
     background-repeat:no-repeat;background-attachment:fixed;
   }
   img{max-width:100%}
@@ -76,7 +76,7 @@
   .cta-row{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:6px}
   .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:11px;font-weight:600;font-size:1rem;border:1px solid transparent;transition:transform .12s,background .15s,border-color .15s;cursor:pointer}
   .btn:hover{transform:translateY(-1px)}
-  .btn-primary{background:linear-gradient(180deg,var(--accent),var(--accent-deep));color:#fff;box-shadow:0 8px 30px -12px rgba(91,140,255,.7)}
+  .btn-primary{background:linear-gradient(180deg,var(--accent),var(--accent-deep));color:#eef2f7;box-shadow:0 2px 6px -3px rgba(0,0,0,.6)}
   .btn-ghost{background:var(--surface);border-color:var(--line-2);color:var(--text)}
   .btn-ghost:hover{border-color:var(--accent)}
   .btn small{font-weight:400;color:rgba(255,255,255,.72);font-size:.78rem}
@@ -94,7 +94,7 @@
   @media(max-width:840px){.grid{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:540px){.grid{grid-template-columns:1fr}}
   .card{background:linear-gradient(180deg,var(--surface),var(--bg-2));border:1px solid var(--line);border-radius:var(--radius);padding:22px 20px;display:flex;flex-direction:column;gap:11px}
-  .card .ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:rgba(91,140,255,.12);border:1px solid var(--line-2);color:var(--accent-soft);font-size:1.2rem}
+  .card .ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:rgba(110,140,185,.10);border:1px solid var(--line-2);color:var(--accent-soft);font-size:1.2rem}
   .card h3{font-size:1.08rem}
   .card p{color:var(--text-dim);font-size:.94rem}
 
