@@ -8,9 +8,9 @@
   if(reduce) return;
 
   // Scroll reveals with per-group stagger.
-  var sel='.sec-head, .card, .step, .faq details, .shot, .dl';
+  var sel='.sec-head, .card, .step, .faq details, .shot';
   document.querySelectorAll(sel).forEach(function(el){el.classList.add('reveal');});
-  document.querySelectorAll('.grid,.steps,.faq,.shots,.dl-grid').forEach(function(parent){
+  document.querySelectorAll('.grid,.steps,.faq,.shots').forEach(function(parent){
     Array.prototype.forEach.call(parent.children,function(child,i){
       if(child.classList&&child.classList.contains('reveal')){child.style.transitionDelay=(Math.min(i,5)*0.07).toFixed(2)+'s';}
     });
