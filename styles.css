@@ -71,6 +71,7 @@
   .btn-ghost small{color:var(--text-mute)}
   .meta-line{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;color:var(--text-mute);font-size:.86rem;margin-top:2px}
   .meta-line span{display:inline-flex;align-items:center;gap:7px}
+  .meta-line a{color:var(--text-dim);text-decoration:underline;text-underline-offset:3px}.meta-line a:hover{color:var(--text)}
   .dot{width:6px;height:6px;border-radius:50%;background:var(--good)}
 
   section{padding-block:56px}
