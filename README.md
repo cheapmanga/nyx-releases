@@ -2,7 +2,7 @@
 
 <h1 align="center">Nyx</h1>
 
-Nyx adds games to your Steam library from free manifest sources, straight from the Steam client:
+Nyx adds games to your Steam library, straight from the Steam client:
 open a game's store page and click **Add to library**. The source code is private. This repository
 only hosts the builds and serves as Nyx's auto-update channel.
 
