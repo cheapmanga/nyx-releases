@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Nyx</title>
-<meta name="description" content="Nyx adds games to your Steam library and keeps them on the latest build — straight from the store page, no clutter.">
+<meta name="description" content="Nyx adds games to your Steam library and keeps them on the latest build, straight from the store page.">
 <meta property="og:title" content="Nyx">
 <meta property="og:description" content="Add any Steam game to your library and keep it on the latest build.">
 <meta property="og:type" content="website">
@@ -13,210 +13,179 @@
 <link rel="apple-touch-icon" href="docs/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-
 <header class="nav">
   <div class="wrap nav-in">
-    <a class="brand" href="#top"><img class="tile" src="docs/logo.png" alt="Nyx logo">Nyx</a>
-    <nav class="nav-links">
-      <a class="hide-sm" href="#features">Features</a>
-      <a class="hide-sm" href="#how">How it works</a>
-      <a class="hide-sm" href="#screens">Screenshots</a>
-      <a class="hide-sm" href="#faq">FAQ</a>
-      <a class="hide-sm" href="fixes.html">Fixes</a>
+    <a class="brand" href="#top"><img src="docs/logo.png" alt="">Nyx</a>
+    <nav class="nav-links" aria-label="Main">
+      <a class="opt" href="#how">How it works</a>
+      <a class="opt" href="#screens">Screenshots</a>
+      <a class="opt" href="#faq">FAQ</a>
+      <a href="fixes.html">Fixes</a>
       <a href="https://github.com/cheapmanga/nyx-releases">GitHub</a>
-      <a class="nav-cta" href="#top">Download</a>
     </nav>
   </div>
 </header>
 
 <main id="top">
-<section class="hero wrap">
-  <img class="mark-lg" src="docs/logo.png" alt="Nyx logo">
-  <h1>Every Steam game,<br><span class="glow">on your terms.</span></h1>
-  <p class="lede">Nyx adds games to your Steam library and keeps them on the latest build — straight from the store page, no clutter.</p>
-  <div class="cta-row">
-    <a class="btn btn-primary" href="https://github.com/cheapmanga/nyx-releases/releases/download/v0.2.0/Nyx.exe">
-      Download for Windows <small>Standalone</small>
-    </a>
-    <a class="btn btn-ghost" href="https://github.com/cheapmanga/nyx-releases/releases/download/v0.2.0/Nyx-millennium-installer.exe">Using Millennium? <small>Get the plugin</small></a>
-  </div>
-  <div class="meta-line">
-    <span><span class="dot"></span>Free &amp; auto-updating</span>
-    <span>Windows 10 / 11</span>
-    <span>18 languages</span>
-  </div>
-</section>
+<div class="sky">
+  <svg class="stars" aria-hidden="true" focusable="false">
+    <defs><path id="spark" d="M0-1C.08-.3.3-.08 1 0 .3.08.08.3 0 1-.08.3-.3.08-1 0-.3-.08-.08-.3 0-1Z"/></defs>
+  </svg>
+  <section class="hero wrap">
+    <h1>Every Steam game, on your terms.</h1>
+    <p class="lede">Nyx adds games to your Steam library from their store page and keeps them on the build Steam is shipping today.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://github.com/cheapmanga/nyx-releases/releases/download/v0.2.0/Nyx.exe">Download for Windows <small>Standalone app</small></a>
+      <a class="btn btn-ghost" href="https://github.com/cheapmanga/nyx-releases/releases/download/v0.2.0/Nyx-millennium-installer.exe">Get the Millennium plugin <small>If you already run Millennium</small></a>
+    </div>
+    <p class="facts">Free and updates itself. Windows 10 and 11, in 18 languages.</p>
+  </section>
+</div>
 
-<div class="marquee" aria-hidden="true"><div class="marquee__track"><span>Add any game</span><span class="sep">◆</span><span>Latest build, always</span><span class="sep">◆</span><span>DLC included</span><span class="sep">◆</span><span>Native Steam panel</span><span class="sep">◆</span><span>One-click kill-switch</span><span class="sep">◆</span><span>18 languages</span><span class="sep">◆</span><span>Add any game</span><span class="sep">◆</span><span>Latest build, always</span><span class="sep">◆</span><span>DLC included</span><span class="sep">◆</span><span>Native Steam panel</span><span class="sep">◆</span><span>One-click kill-switch</span><span class="sep">◆</span><span>18 languages</span><span class="sep">◆</span></div></div>
-
-<section id="features" class="wrap">
-  <div class="sec-head">
-    <span class="eyebrow">What it does</span>
-    <h2>Built to disappear into Steam</h2>
-    <p>No second launcher, no separate library. Nyx works from inside Steam and gets out of the way.</p>
-  </div>
-  <div class="grid">
-    <div class="card">
-      <div class="ic">＋</div>
-      <h3>Add from the store page</h3>
-      <p>Open any game's Steam store page and click “Add via Nyx.” It lands in your library like anything else.</p>
-    </div>
-    <div class="card">
-      <div class="ic">↻</div>
-      <h3>Always the current build</h3>
-      <p>Nyx pulls the manifests for the build Steam is shipping today, so your games install and update to the real latest version.</p>
-    </div>
-    <div class="card">
-      <div class="ic">◈</div>
-      <h3>DLC included</h3>
-      <p>Most games come with their DLC already entitled when you add them — nothing extra to hunt down.</p>
-    </div>
-    <div class="card">
-      <div class="ic">⛭</div>
-      <h3>Native settings</h3>
-      <p>A real Steam ▸ Nyx settings panel: pick libraries, toggle behavior, restart Steam — right where you'd expect it.</p>
-    </div>
-    <div class="card">
-      <div class="ic">✕</div>
-      <h3>Kill-switch</h3>
-      <p>Turn Nyx off inside Steam in one click. Everything hides and Steam behaves exactly as it did before — fully reversible.</p>
-    </div>
-    <div class="card">
-      <div class="ic">◐</div>
-      <h3>Standalone or plugin</h3>
-      <p>Run the standalone tray app, or drop in the Millennium plugin if you already use Millennium. Same core, your choice.</p>
-    </div>
-  </div>
-</section>
-
-<section id="screens" class="wrap">
-  <div class="sec-head">
-    <span class="eyebrow">See it</span>
-    <h2>It lives inside Steam</h2>
-    <p>No extra window to tab into — Nyx's controls sit in a native Steam ▸ Nyx settings panel.</p>
-  </div>
-  <div class="shots">
-    <figure class="shot" style="margin:0">
-      <img src="docs/settings-general.png" width="1800" height="1232" loading="lazy" alt="Nyx settings, General page: the disable switch and unlock engine status">
-      <figcaption class="cap">General — kill-switch and unlock engine status</figcaption>
-    </figure>
-    <figure class="shot" style="margin:0">
-      <img src="docs/settings-games.png" width="1800" height="1232" loading="lazy" alt="Nyx settings, Games page">
-      <figcaption class="cap">Games — what you've added, at a glance</figcaption>
-    </figure>
-    <figure class="shot wide" style="margin:0">
-      <img src="docs/settings-update.png" width="1800" height="1232" loading="lazy" alt="Unlock engine with an update available">
-      <figcaption class="cap">The unlock engine updates itself — one click, before Steam restarts</figcaption>
-    </figure>
-  </div>
-</section>
-
-<section id="how" class="wrap">
-  <div class="sec-head">
-    <span class="eyebrow">How it works</span>
+<section id="how" class="block wrap">
+  <div class="head">
     <h2>Three steps, then it's just Steam</h2>
   </div>
-  <div class="steps">
-    <div class="step">
-      <span class="n"></span>
-      <h3>Install &amp; launch</h3>
-      <p>Run Nyx once. It sets up the unlock engine and adds a Nyx entry inside Steam — no manual file wrangling.</p>
+  <ol class="route">
+    <li>
+      <svg viewBox="-1 -1 2 2" aria-hidden="true"><use href="#spark"/></svg>
+      <h3><span>1</span>Install Nyx</h3>
+      <p>Run it once. It sets up the unlock engine and adds a Nyx entry inside Steam.</p>
+    </li>
+    <li>
+      <svg viewBox="-1 -1 2 2" aria-hidden="true"><use href="#spark"/></svg>
+      <h3><span>2</span>Add a game</h3>
+      <p>On any store page, choose Add via Nyx. It fetches the current manifests and writes them where Steam looks.</p>
+    </li>
+    <li>
+      <svg viewBox="-1 -1 2 2" aria-hidden="true"><use href="#spark"/></svg>
+      <h3><span>3</span>Download and play</h3>
+      <p>Restart Steam when asked, then install the game like one you own. Updates follow the live build.</p>
+    </li>
+  </ol>
+</section>
+
+<section id="features" class="block wrap">
+  <div class="head">
+    <h2>Built to disappear into Steam</h2>
+    <p>No second launcher and no separate library. Nyx works from inside Steam and stays out of the way.</p>
+  </div>
+  <dl class="almanac">
+    <div><dt>Add from the store page</dt><dd>Open a game's store page and click Add via Nyx. It lands in your library like anything else.</dd></div>
+    <div><dt>Always the current build</dt><dd>Nyx pulls the manifests for today's build, so games install and update to the real latest version.</dd></div>
+    <div><dt>DLC included</dt><dd>Most games come with their DLC already unlocked when you add them.</dd></div>
+    <div><dt>Settings inside Steam</dt><dd>Steam ▸ Nyx opens a settings panel in Steam's own window. Nothing extra to tab into.</dd></div>
+    <div><dt>One-click off switch</dt><dd>Turn Nyx off from that panel and Steam behaves exactly as it did before. Turn it back on any time.</dd></div>
+    <div><dt>Standalone or plugin</dt><dd>Run the standalone tray app, or the Millennium plugin if you already use Millennium. Same core either way.</dd></div>
+  </dl>
+</section>
+
+<section id="screens" class="block wrap">
+  <div class="head">
+    <h2>It lives inside Steam</h2>
+  </div>
+  <div class="viewer">
+    <div class="tabs" role="tablist" aria-label="Settings pages">
+      <button class="tab" role="tab" id="t-general" aria-controls="p-shot" aria-selected="true" data-src="docs/settings-general.png" data-alt="Nyx settings, General page: the off switch and unlock engine status"><b>General</b><span>Off switch and engine status</span></button>
+      <button class="tab" role="tab" id="t-games" aria-controls="p-shot" aria-selected="false" tabindex="-1" data-src="docs/settings-games.png" data-alt="Nyx settings, Games page"><b>Games</b><span>Updates and DLC for added games</span></button>
+      <button class="tab" role="tab" id="t-update" aria-controls="p-shot" aria-selected="false" tabindex="-1" data-src="docs/settings-update.png" data-alt="Unlock engine with an update available"><b>Engine update</b><span>One click, before Steam restarts</span></button>
     </div>
-    <div class="step">
-      <span class="n"></span>
-      <h3>Add a game</h3>
-      <p>Go to a game's store page and choose Add via Nyx. It fetches the current manifests and writes them where Steam looks.</p>
-    </div>
-    <div class="step">
-      <span class="n"></span>
-      <h3>Install &amp; play</h3>
-      <p>Restart Steam when prompted, then download and play like any owned game. Updates follow the live build.</p>
+    <div class="frame" role="tabpanel" id="p-shot" aria-labelledby="t-general">
+      <img src="docs/settings-general.png" width="1800" height="1232" alt="Nyx settings, General page: the off switch and unlock engine status">
     </div>
   </div>
 </section>
 
-<section id="faq" class="wrap">
-  <div class="sec-head">
-    <span class="eyebrow">FAQ</span>
-    <h2>Questions people actually ask</h2>
-  </div>
-  <div class="faq">
-    <details>
-      <summary>Do I need to own the game?<span class="chev">›</span></summary>
-      <div class="ans">No. Nyx writes the manifest and depot files Steam needs, then Steam downloads the game from its own servers like any other title. That's the whole point.</div>
-    </details>
-    <details>
-      <summary>Will my games stay up to date?<span class="chev">›</span></summary>
-      <div class="ans">Yes. Nyx tracks the build Steam is shipping right now and moves your added games to it, so they install and update to the current version instead of an old snapshot.</div>
-    </details>
-    <details>
-      <summary>What about online games and Denuvo?<span class="chev">›</span></summary>
-      <div class="ans">Nyx installs the game. Playing a protected or online-only title can still need a separate fix — Nyx doesn't bundle those. Single-player games generally just work once installed. <a href="fixes.html" style="color:var(--accent-soft)">More on fixes &amp; online play →</a></div>
-    </details>
-    <details>
-      <summary>Is it safe for my account?<span class="chev">›</span></summary>
-      <div class="ans">Nyx only writes local manifest and <code>.lua</code> files and deploys its unlock engine. It never logs into your account, never asks for your password, and never modifies game binaries. As with any tool of this kind, keep added multiplayer games off VAC-secured servers.</div>
-    </details>
-    <details>
-      <summary>Why does antivirus flag the download?<span class="chev">›</span></summary>
-      <div class="ans">The build isn't code-signed (certificates are expensive) and it writes into Steam's folders, which heuristic scanners treat as suspicious. The plugin ships as plain Lua and JavaScript and the app is unobfuscated, so anyone can read exactly what it does.</div>
-    </details>
-    <details>
-      <summary>Standalone or Millennium plugin?<span class="chev">›</span></summary>
-      <div class="ans">Take the <b>Standalone</b> if you're not sure — it sets everything up on its own. Pick the <b>Millennium plugin</b> only if you already run Millennium. Same core either way.</div>
-    </details>
-    <details>
-      <summary>How do I remove a game, or Nyx itself?<span class="chev">›</span></summary>
-      <div class="ans">Remove a game from its store page ▸ Nyx icon ▸ Remove via Nyx. To remove Nyx, flip the kill-switch in Steam ▸ Nyx, or delete the engine files and the <code>Nyx</code> plugin folder. Your installed games stay put.</div>
-    </details>
-  </div>
-</section>
-
-<section class="wrap">
-  <div class="sec-head">
-    <span class="eyebrow">No black box</span>
+<section class="block wrap">
+  <div class="head">
     <h2>What Nyx touches on your PC</h2>
-    <p>Nyx is readable — the plugin ships as plain Lua and JavaScript, and the app is unobfuscated. Here's exactly what changes, and how to undo it.</p>
+    <p>The plugin ships as plain Lua and JavaScript and the app isn't obfuscated, so anyone can check this list.</p>
   </div>
-  <div class="trans">
+  <div class="ledger">
     <div>
       <h3>What it changes</h3>
       <ul>
-        <li><span class="b">›</span><span>Deploys the unlock engine into your Steam folder so added games can install.</span></li>
-        <li><span class="b">›</span><span>Writes game <code>.lua</code> and <code>.manifest</code> files into Steam's config and depot cache.</span></li>
-        <li><span class="b">›</span><span>Stores its own settings under <code>%LocalAppData%\Nyx</code> — never your Steam credentials.</span></li>
-        <li><span class="b">›</span><span>That's it. No account login, no telemetry on what you play.</span></li>
+        <li>Puts the unlock engine in your Steam folder so added games can install.</li>
+        <li>Writes game <code>.lua</code> and <code>.manifest</code> files into Steam's config and depot cache.</li>
+        <li>Keeps its own settings in <code>%LocalAppData%\Nyx</code>, never your Steam credentials.</li>
+        <li>Nothing else: no account login, no tracking of what you play.</li>
       </ul>
     </div>
     <div>
-      <h3>Removing things</h3>
+      <h3>How to undo it</h3>
       <ul>
-        <li><span class="b">›</span><span><b style="color:var(--text)">A game:</b> open its store page ▸ Nyx icon ▸ Remove via Nyx.</span></li>
-        <li><span class="b">›</span><span><b style="color:var(--text)">Nyx itself:</b> flip the kill-switch in Steam ▸ Nyx to hide everything, or delete the engine files and the <code>Nyx</code> plugin folder.</span></li>
-        <li><span class="b">›</span><span>Removing Nyx leaves your installed games where they are.</span></li>
+        <li><b>A game:</b> open its store page, then Nyx icon ▸ Remove via Nyx.</li>
+        <li><b>Nyx itself:</b> use the off switch in Steam ▸ Nyx, or delete the engine files and the <code>Nyx</code> plugin folder.</li>
+        <li>Removing Nyx leaves your installed games where they are.</li>
       </ul>
     </div>
+  </div>
+</section>
+
+<section id="faq" class="block wrap">
+  <div class="head">
+    <h2>Questions people ask</h2>
+  </div>
+  <div class="faq">
+    <details>
+      <summary>Do I need to own the game?</summary>
+      <div class="ans">No. Nyx writes the manifest and depot files Steam needs, then Steam downloads the game from its own servers like any other title.</div>
+    </details>
+    <details>
+      <summary>Will my games stay up to date?</summary>
+      <div class="ans">Yes. Nyx tracks the build Steam is shipping right now and moves your added games to it, so they install and update to the current version instead of an old snapshot.</div>
+    </details>
+    <details>
+      <summary>What about online games and Denuvo?</summary>
+      <div class="ans">Nyx installs the game. A protected or online-only title can still need a separate fix, which Nyx doesn't bundle. Single-player games generally just work once installed. <a href="fixes.html">Read about fixes and online play</a>.</div>
+    </details>
+    <details>
+      <summary>Is it safe for my account?</summary>
+      <div class="ans">Nyx only writes local manifest and <code>.lua</code> files and deploys its unlock engine. It never logs into your account, never asks for your password and never modifies game files. As with any tool of this kind, keep added multiplayer games off VAC-secured servers.</div>
+    </details>
+    <details>
+      <summary>Why does my antivirus flag the download?</summary>
+      <div class="ans">The build isn't code-signed (certificates are expensive) and it writes into Steam's folders, which heuristic scanners treat as suspicious. The plugin is plain Lua and JavaScript and the app is unobfuscated, so anyone can read what it does.</div>
+    </details>
+    <details>
+      <summary>Standalone or Millennium plugin?</summary>
+      <div class="ans">Take the <b>standalone app</b> if you're not sure: it sets everything up on its own. Pick the <b>Millennium plugin</b> only if you already run Millennium.</div>
+    </details>
+    <details>
+      <summary>How do I remove a game, or Nyx itself?</summary>
+      <div class="ans">For a game: its store page, then Nyx icon ▸ Remove via Nyx. For Nyx: the off switch in Steam ▸ Nyx, or delete the engine files and the <code>Nyx</code> plugin folder. Your installed games stay put.</div>
+    </details>
+  </div>
+</section>
+
+<section class="block wrap closing">
+  <div class="head">
+    <h2>Your library, after dark.</h2>
+    <p>One download. Then open any store page and add the game.</p>
+  </div>
+  <div class="actions">
+    <a class="btn btn-primary" href="https://github.com/cheapmanga/nyx-releases/releases/download/v0.2.0/Nyx.exe">Download for Windows <small>Standalone app</small></a>
+    <a class="btn btn-ghost" href="https://github.com/cheapmanga/nyx-releases/releases/download/v0.2.0/Nyx-millennium-installer.exe">Get the Millennium plugin <small>If you already run Millennium</small></a>
   </div>
 </section>
 </main>
 
 <footer>
   <div class="wrap foot-in">
-    <a class="brand" href="#top"><img class="tile" style="width:24px;height:24px" src="docs/logo.png" alt="">Nyx</a>
-    <div class="foot-links">
+    <a class="brand" href="#top"><img src="docs/logo.png" alt="">Nyx</a>
+    <span>Free for Windows. Readable source.</span>
+    <nav aria-label="Footer">
+      <a href="fixes.html">Fixes</a>
       <a href="https://github.com/cheapmanga/nyx-releases">GitHub</a>
       <a href="https://github.com/cheapmanga/nyx-releases/releases">Releases</a>
-      <a href="#top">Download</a>
-    </div>
-    <span>Windows · Free · Open to read</span>
+    </nav>
   </div>
 </footer>
-
 
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <script src="app.js"></script>
